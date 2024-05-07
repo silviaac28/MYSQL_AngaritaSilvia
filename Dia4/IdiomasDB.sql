@@ -52,6 +52,23 @@ values (1, "Barcelona", 1), (2, "Bucaramanga", 2), (3, "Pekin", 3), (4, "Berlin"
 insert  into idioma_pais(id_idioma, id_pais, es_oficial) 
 values (1, 1, 0), (2, 10, 0), (3, 2, 0), (4, 3, 0), (5, 6, 1), (6, 4, 0), (7, 5, 1), (8, 7, 1), (9, 8, 0), (10, 9, 0);
 
+-- consulta tipo inner join para obtener las ciudades que estàn asignadas a un paìs
+
+select pais.nombre as nombrePais, ciudad.nombre as nombreCiudad
+from pais inner join ciudad 
+on pais.id_pais = ciudad.id_pais;
+
+-- consulta tipo left join para obtener 
+select pais.nombre as nombrePais, ciudad.nombre as nombreCiudad
+from pais left join ciudad 
+on pais.id_pais = ciudad.id_pais;
+
+insert  into pais(id_pais, nombre, continente, poblacion) 
+values (11, "India", "Asia", 500000000);
+
+select pais.nombre as nombrePais, ciudad.nombre as nombreCiudad
+from pais cross join ciudad 
+
 
 
 
