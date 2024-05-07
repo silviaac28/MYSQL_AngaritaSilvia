@@ -17,12 +17,12 @@ where codigo_jefe = 7;
 -- CONSULTA Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
 
 select puesto, nombre, apellido1, apellido2, email from empleado
-where codigo_empleado = (select codigo_empleado from empleado where codigo_jefe is null);
+where codigo_jefe is null;
 
 -- CONSULTA Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas.
 
 select nombre, apellido1, apellido2, puesto from empleado
-where codigo_empleado not in (select codigo_empleado_rep_ventas from cliente where codigo_empleado_rep_ventas is not null);
+where puesto != "representantes de ventas";
 
 
 -- CONSULTA Devuelve un listado con el nombre de los todos los clientes españoles.
@@ -81,3 +81,15 @@ order by precio_venta desc;
 
 select * from cliente
 where ciudad = 'Madrid' and codigo_empleado_rep_ventas in (11, 30);
+
+
+  -- Consultas multitabla (Composición interna)
+-- Resuelva todas las consultas mediante INNER JOIN y NATURAL JOIN.
+
+-- Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
+
+select cliente.nombre_cliente  as nombrecliente, empleado.nombre as nombrerepresentante, empleado.apellido1  as apellido1,empleado.apellido2  as apellido2
+from cliente  inner join empleado   
+on cliente.codigo_empleado_rep_ventas  = empleado.codigo_empleado ;
+
+
