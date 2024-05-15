@@ -1,3 +1,3 @@
 # MYSQL_AngaritaSilvia
 
-En este repositorio se encuentran ejercicios de SQL, 
+En este repositorio se encuentran ejercicios de MYSQL, 
